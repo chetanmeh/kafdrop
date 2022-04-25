@@ -46,7 +46,9 @@ public interface KafkaMonitor {
 
   ClusterSummaryVO getClusterSummary(Collection<TopicVO> topics);
 
-  List<ConsumerVO> getConsumers(Collection<TopicVO> topicVos);
+  List<ConsumerVO> getConsumersByGroup(String groupId);
+
+  List<ConsumerVO> getConsumersByTopics(Collection<TopicVO> topicVos);
 
   /**
    * Create topic

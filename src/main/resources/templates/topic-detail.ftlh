@@ -1,5 +1,5 @@
 <#--
- Copyright 2016 Kafdrop contributors.
+ Copyright 2021 Kafdrop contributors.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  limitations under the License.
 -->
 <#import "/spring.ftl" as spring />
-<#import "lib/template.ftl" as template>
+<#import "lib/template.ftlh" as template>
 <@template.header "Topic: ${topic.name}">
     <style type="text/css">
         #action-bar {
@@ -124,7 +124,7 @@
                 <tbody>
                 <#list topic.partitions as p>
                     <tr>
-                        <td><a href="<@spring.url '/topic/${topic.name}/messages?partition=${p.id}&offset=${p.firstOffset}&count=100'/>">${p.id}</a></td>
+                        <td><a href="<@spring.url '/topic/${topic.name}/messages?partition=${p.id}&offset=${p.firstOffset}&count=100&keyFormat${keyFormat}=&format=${format}'/>">${p.id}</a></td>
                         <td>${p.firstOffset}</td>
                         <td>${p.size}</td>
                         <td>${p.size - p.firstOffset}</td>
